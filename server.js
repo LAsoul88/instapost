@@ -20,17 +20,28 @@ app.get("/", function (req, res) {
 // === Post
 
 // Index GET / - Presentational 
-app.get('/', (req, res) => {
+app.get('/posts', (req, res) => {
     res.send('Post Index');
 });
 
 // New GET /posts/new - Presentational Form
+app.get('/posts/new', (req, res) => {
+    res.send('Post Create page');
+});
 
 // Create POST /posts - Functional
 
 // Show GET /posts/:id - Presentational
+app.get('/posts/:id', (req, res) => {
+    // echo param id
+    res.send(`Post Show page id: ${req.params.id}`);
+});
 
 // Edit GET /posts/:id/edit - Presentational Form
+app.get('/posts/:id/edit', (req, res) => {
+    // echo param id
+    res.send(`Post Edit page id: ${req.params.id}`);
+});
 
 // Update PUT /posts/:id - Functional
 
