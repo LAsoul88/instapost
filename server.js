@@ -2,6 +2,9 @@
 const express = require('express');
 
 /* === Internal Modules === */
+const PostDB = require('./models/post_model.js');
+
+console.log(PostDB.find());
 
 /* === Instance Modules === */
 const app = express();
