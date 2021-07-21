@@ -1,0 +1,28 @@
+{
+  "name": "instapost",
+  "version": "1.0.0",
+  "description": "Recreating a social media post",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LAsoul88/instapost.git"
+  },
+  "author": "courtney kakebeen courtney.kakebeen@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LAsoul88/instapost/issues"
+  },
+  "homepage": "https://github.com/LAsoul88/instapost#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
