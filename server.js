@@ -55,7 +55,6 @@ app.get('/posts/:id/edit', (req, res) => {
 });
 
 // Update PUT /posts/:id - Functional
-
 app.put('/posts/:id', (req, res) => {
     // echo body data and id
     res.send({
@@ -66,6 +65,13 @@ app.put('/posts/:id', (req, res) => {
 });
 
 // Destroy DELETE /posts/:id - Functional
+app.delete('/posts/:id', (req, res) => {
+    // echo id
+    res.send({
+        message: "Hit Delete route",
+        id: req.params.id,
+    });
+});
 
 /* === Server Bind === */
 app.listen(PORT, () => {
