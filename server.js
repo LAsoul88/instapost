@@ -11,6 +11,9 @@ const PORT = 4000;
 
 /* === Middleware === */
 
+// access body data
+app.use(express.urlencoded({ extended: true }));
+
 /* === Routes === */
 
 app.get("/", function (req, res) {
@@ -30,6 +33,14 @@ app.get('/posts/new', (req, res) => {
 });
 
 // Create POST /posts - Functional
+app.post('/posts', (req, res) => {
+    console.log(req.body);
+    // echo
+    res.send({
+        message: "Hit the Create route",
+        body: req.body,
+     });
+});
 
 // Show GET /posts/:id - Presentational
 app.get('/posts/:id', (req, res) => {
