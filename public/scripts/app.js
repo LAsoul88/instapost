@@ -1,0 +1,1 @@
+console.log("%c STOP", "font-size: 60px; color:red;");

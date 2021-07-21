@@ -4,18 +4,20 @@ const express = require('express');
 /* === Internal Modules === */
 const PostDB = require('./models/post_model.js');
 
-console.log(PostDB.find());
-
 /* === Instance Modules === */
 const app = express();
 
 /* === Configuration === */
+app.set("view engine", "ejs");
 const PORT = 4000;
 
 /* === Middleware === */
 
 // access body data
 app.use(express.urlencoded({ extended: true }));
+
+// public static serve
+app.use(express.static("public"));
 
 /* === Routes === */
 
@@ -27,7 +29,11 @@ app.get("/", function (req, res) {
 
 // Index GET / - Presentational 
 app.get('/posts', (req, res) => {
-    res.send('Post Index');
+    const context = {
+        posts: PostDB.find(),
+        title: "Your Feed",
+    }
+    return res.render("posts/index", context);
 });
 
 // New GET /posts/new - Presentational Form

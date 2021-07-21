@@ -82,4 +82,13 @@ module.exports = new Collection(Post, [
         content: "Doing some things", 
         isPrivate: false
     },
+    {
+        user: {
+            username: "Super Cool Coder Person",
+            avatar: "https://media.npr.org/assets/img/2021/06/08/australotitan_cooperensis_vladkonstantinov_scotthocknull_-c-eromanganaturalhistorymuseum_lowres1_wide-10b7d7a237a55a2ff5be011ede1cd83536ae9fe2.jpg?s=1400", 
+        },
+        image: "https://www.sciencenewsforstudents.org/wp-content/uploads/2019/11/860-header-non-dinos1.jpg",
+        content: "Did even more things BC for lyfe", 
+        isPrivate: false
+    },
 ])
