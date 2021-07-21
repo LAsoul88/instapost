@@ -1,5 +1,6 @@
 /* === External Modules === */
 const express = require('express');
+const { runInNewContext } = require('vm');
 
 /* === Internal Modules === */
 const PostDB = require('./models/post_model.js');
@@ -38,17 +39,28 @@ app.get('/posts', (req, res) => {
 
 // New GET /posts/new - Presentational Form
 app.get('/posts/new', (req, res) => {
-    res.send('Post Create page');
+    res.render('posts/new');
 });
 
 // Create POST /posts - Functional
 app.post('/posts', (req, res) => {
-    console.log(req.body);
-    // echo
-    res.send({
-        message: "Hit the Create route",
-        body: req.body,
-     });
+    const newPost = {
+        user: {
+            username: req.body.username,
+            avatar: req.body.avatar
+        },
+        content: req.body.content,
+        image: req.body.image,
+        isPrivate: false,
+    };
+    
+    PostDB.create(newPost, (error, createdPost) => {
+        if (error) {
+            return res.send(error);
+        }
+
+        return res.redirect("/posts");
+    });
 });
 
 // Show GET /posts/:id - Presentational
